@@ -1,0 +1,6 @@
+/* global style  */
+/* 样式全用tailwindcss，不要自己写样式 */
+
+:root {
+  --color-primary: #1176ff;
+}
