@@ -1,6 +1,21 @@
-/* global style  */
-/* 样式全用tailwindcss，不要自己写样式 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --color-primary: #1176ff;
+@layer base {
+  :root {
+  }
+  textarea,
+  input {
+    @apply w-full rounded-lg border border-field-border p-4 text-neutral-900 placeholder:text-sm placeholder:text-neutral-600 focus:outline-black;
+  }
+  input {
+    @apply h-12;
+  }
+  textarea {
+    @apply h-40;
+  }
+}
+
+@layer components {
 }

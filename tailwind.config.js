@@ -1,11 +1,11 @@
+/** @type {import('tailwindcss').Config} */
+
 module.exports = {
-  mode: "jit",
-  purge: ["./{pages,common}/**/*.{tsx,jsx,html,js,ts}"],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./{pages,common,components}/**/*.{jsx,html,js,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: "var(--color-primary)",
+        "field-border": "var(--border,#fff)",
       },
     },
   },

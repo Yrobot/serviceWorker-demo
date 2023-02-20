@@ -1,0 +1,35 @@
+{
+    "cells": [
+        {
+            "language": "typescript",
+            "source": [
+                "console.log(process.version);\n\n(async () => {\n  const response = await fetch(\n    \"https://bpic.588ku.com/element_origin_min_pic/01/10/35/0656f589ffc81c2.jpg\"\n  );\n  console.log(response);\n})().then((err) => {\n  console.error(err);\n});\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "v18.14.1",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "TypeError",
+                                "message": "response.buffer is not a function",
+                                "stack": "    at <Cell 1> [7, 8]\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C (/Users/yrobot/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:113337)\n    at async t.execCode (/Users/yrobot/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:114306)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

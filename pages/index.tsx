@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Title from "components/Title";
 
 function Page({ ...props }) {
-  return <div>Next</div>;
+  return <Title />;
 }
 
 export async function getStaticProps({ params }) {

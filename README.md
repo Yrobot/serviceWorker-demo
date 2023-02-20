@@ -1,4 +1,4 @@
-# Blue Sun Official Website
+# Base Official Website
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ You will need the following things properly installed on your computer.
 
 ### clone code
 
-- git clone https://$your_bitbucket_username@bitbucket.org/devzai/arya.git
+- git clone $ssh-url
 
 ### install dependency
 

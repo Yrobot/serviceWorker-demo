@@ -1,8 +1,10 @@
-const { version } = require("./package.json");
+const { version, name } = require("./package.json");
 
 module.exports = {
   env: {
-    version,
+    NEXT_PUBLIC_VERSION: version,
+    NEXT_PUBLIC_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_NAME: name,
   },
   compress: false,
 };

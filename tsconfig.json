@@ -5,6 +5,9 @@
       "common": [
         "./common"
       ],
+      "components": [
+        "./components"
+      ]
     },
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
@@ -25,7 +28,8 @@
     "esModuleInterop": true,
     "module": "esnext",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
@@ -34,5 +38,10 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }
