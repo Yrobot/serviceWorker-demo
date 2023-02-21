@@ -1,15 +1,20 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "lib": [
-      "ES2015",
+      "ES6",
       "WebWorker"
     ],
     "target": "ES5",
-    "noEmit": true
+    "moduleResolution": "node",
+    "outDir": "../public"
   },
   "include": [
     "**/*.ts",
   ],
-  "exclude": [],
+  "files": [
+    "sw.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
 }

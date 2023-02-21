@@ -4,9 +4,11 @@
   "description": "service worker demo with Next.js",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export -o build",
-    "start": "next build && next start"
+    "sw:dev": "tsc -p service-worker -w",
+    "sw:build": "tsc -p service-worker",
+    "dev": "yarn sw:dev & next dev",
+    "build": "yarn sw:build & next build && next export -o build",
+    "start": "yarn sw:build & next build && next start"
   },
   "repository": {
     "type": "git",

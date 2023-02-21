@@ -1,4 +1,8 @@
-declare const self: ServiceWorkerGlobalScope;
+/// <reference no-default-lib="true"/>
+/// <reference lib="ES6" />
+/// <reference lib="WebWorker" />
+
+declare var self: ServiceWorkerGlobalScope;
 export type {};
 
 console.log("[service-worker] running");
