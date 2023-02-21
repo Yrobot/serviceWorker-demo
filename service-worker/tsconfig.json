@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": [
+      "ES2015",
+      "WebWorker"
+    ],
+    "target": "ES5",
+    "noEmit": true
+  },
+  "include": [
+    "**/*.ts",
+  ],
+  "exclude": [],
+}

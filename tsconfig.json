@@ -37,7 +37,8 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "service-worker/**/*.ts",
   ],
   "ts-node": {
     "compilerOptions": {
