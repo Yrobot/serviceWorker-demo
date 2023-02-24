@@ -6,7 +6,8 @@
     ],
     "target": "ES5",
     "moduleResolution": "node",
-    "outDir": "../public"
+    "outDir": "../public",
+    "noEmitOnError": true
   },
   "include": [
     "**/*.ts",

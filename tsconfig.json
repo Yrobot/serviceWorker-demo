@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "utilities": [
+        "./utilities"
+      ],
       "common": [
         "./common"
       ],
