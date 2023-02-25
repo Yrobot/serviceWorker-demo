@@ -3,6 +3,10 @@
 # Learn more about .gitignore:
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
+# build temp files
+.rollup.cache
+tsconfig.tsbuildinfo
+
 # build file
 
 public/sw.js

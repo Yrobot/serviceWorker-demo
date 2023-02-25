@@ -4,10 +4,6 @@
       "ES6",
       "WebWorker"
     ],
-    "target": "ES5",
-    "moduleResolution": "node",
-    "outDir": "../public",
-    "noEmitOnError": true
   },
   "include": [
     "**/*.ts",
