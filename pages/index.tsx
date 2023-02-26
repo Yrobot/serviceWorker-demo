@@ -19,9 +19,45 @@ function Page({ ...props }) {
       alert("serviceWorker not support");
     }
   }, []);
+
+  const buttons = [
+    {
+      children: "GET",
+      onClick: () => {
+        fetch("/hi");
+      },
+    },
+    {
+      children: "POST",
+      onClick: () => {
+        fetch("/post", { method: "POST" });
+      },
+    },
+    {
+      children: "IMAGE",
+      onClick: () => {
+        fetch("/images/google");
+      },
+    },
+    {
+      children: "HTML",
+      onClick: () => {
+        fetch("/index.html");
+      },
+    },
+    {
+      children: "JS",
+      onClick: () => {
+        fetch("/index.js");
+      },
+    },
+  ];
+
   return (
-    <div className="flex h-screen items-center justify-center text-3xl font-bold text-neutral-800">
-      <img src="/images/google" alt="" />
+    <div className="flex h-screen items-center justify-center space-x-8">
+      {buttons.map((btn) => (
+        <button className="btn" {...btn} key={btn.children} />
+      ))}
     </div>
   );
 }
