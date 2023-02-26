@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Title from "components/Title";
 import { waitUntil } from "utilities";
 
 const version = Math.floor(Date.now() / 1000) % 1000;
@@ -20,7 +19,11 @@ function Page({ ...props }) {
       alert("serviceWorker not support");
     }
   }, []);
-  return <Title />;
+  return (
+    <div className="flex h-screen items-center justify-center text-3xl font-bold text-neutral-800">
+      <img src="/images/google" alt="" />
+    </div>
+  );
 }
 
 export default Page;
