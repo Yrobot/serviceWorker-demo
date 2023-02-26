@@ -1,4 +1,5 @@
 import ts from "rollup-plugin-ts";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 
 /** @type {import('rollup').RollupOptions} */
 export default {
@@ -12,5 +13,6 @@ export default {
     ts({
       tsconfig: "service-worker/tsconfig.json",
     }),
+    nodeResolve(),
   ],
 };

@@ -1,3 +1,5 @@
+import router, { Method } from "./router";
+
 const worker: ServiceWorkerGlobalScope = self as any;
 
 const mark = Math.floor(Date.now() / 1000) % 1000;
@@ -14,12 +16,14 @@ worker.addEventListener("activate", (event) => {
 });
 
 worker.addEventListener("fetch", (event) => {
-  const { url, method } = event.request;
-  const { origin, port, pathname } = new URL(url);
+  const request = event.request;
+  const url = new URL(request.url);
+  const context = { request, url };
 
-  if (origin === self.origin && method === "GET" && pathname === "/hi") {
-    console.log(`[service-worker:${mark}] fetch '${pathname}'`);
-    // GET http://localhost:3000/hi => "Hello World!"
-    event.respondWith(new Response(`Hello World! ${mark}`));
+  console.log(`[service-worker:${mark}] fetch '${url.pathname}'`);
+
+  const match = router.match(request.method as Method, url.pathname);
+  if (match) {
+    event.respondWith(match.handler(match.params, context));
   }
 });
