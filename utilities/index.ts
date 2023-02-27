@@ -11,7 +11,7 @@ export const waitUntil = (
         resolve(true);
       } else if (max > 0 && Date.now() - start > max) {
         clearInterval(id);
-        reject(new Error("waitUntil max time run out."));
+        reject("waitUntil max time run out.");
       }
     }, timeout);
   });

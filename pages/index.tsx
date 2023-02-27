@@ -6,15 +6,14 @@ const version = Math.floor(Date.now() / 1000) % 1000;
 function Page({ ...props }) {
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register(`/sw.js?v=${version}`)
-        .then((registration) => {
-          waitUntil(() => !!registration.active)
-            .then(() => {
-              fetch(`/hi?v=${version}`);
-            })
-            .catch(console.error);
-        });
+      navigator.serviceWorker.register(`/sw.js`);
+
+      // check if service worker is active
+      waitUntil(() => !!navigator.serviceWorker.controller, { max: 9000 }).then(
+        () => {
+          fetch(`/hi`);
+        }
+      );
     } else {
       alert("serviceWorker not support");
     }

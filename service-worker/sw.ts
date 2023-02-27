@@ -12,7 +12,11 @@ worker.addEventListener("install", (event) => {
 });
 
 worker.addEventListener("activate", (event) => {
-  console.log(`[service-worker:${mark}] activated`);
+  event.waitUntil(
+    worker.clients.claim().then(() => {
+      console.log(`[service-worker:${mark}] activated`);
+    })
+  );
 });
 
 worker.addEventListener("fetch", (event) => {
