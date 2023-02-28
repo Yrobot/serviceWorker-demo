@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { waitUntil } from "utilities";
 
-const version = Math.floor(Date.now() / 1000) % 1000;
-
 function Page({ ...props }) {
+  const [swReady, setReady] = useState(false);
+
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register(`/sw.js`);
@@ -12,6 +12,7 @@ function Page({ ...props }) {
       waitUntil(() => !!navigator.serviceWorker.controller, { max: 9000 }).then(
         () => {
           fetch(`/hi`);
+          setReady(true);
         }
       );
     } else {
@@ -60,10 +61,12 @@ function Page({ ...props }) {
 
   return (
     <div className="flex h-screen flex-col items-center justify-center space-y-12">
-      <iframe
-        src="/iframe/index.html"
-        className="h-[60vh] w-[60vw] flex-none"
-      ></iframe>
+      {swReady && (
+        <iframe
+          src="/iframe/index.html"
+          className="h-[60vh] w-[60vw] flex-none"
+        ></iframe>
+      )}
       <div className="flex w-full flex-none items-center justify-center space-x-8 py-4">
         {buttons.map((btn) => (
           <button className="btn" {...btn} key={btn.children} />
