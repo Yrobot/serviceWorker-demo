@@ -20,7 +20,7 @@ router.get("/hi", async () => new Response(`Hello World!`));
 router.get("/images/google", async () => new Response(await images.google()));
 
 router.get(
-  "/index.html",
+  "/iframe/index.html",
   async () =>
     new Response(html, {
       headers: {
@@ -29,7 +29,7 @@ router.get(
     })
 );
 router.get(
-  "/style.css",
+  "/iframe/style.css",
   async () =>
     new Response(css, {
       headers: {
@@ -39,7 +39,7 @@ router.get(
 );
 
 router.get(
-  "/index.js",
+  "/iframe/index.js",
   async () =>
     new Response(js, {
       headers: {

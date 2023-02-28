@@ -6,9 +6,13 @@ export const html = `
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>service worker demo</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="title">Hi, This is Service Worker Demo</div>
+    <img src="/images/google" />
+    <div class="title">
+      Hi, This is <span class="red">Service Worker Demo</span>
+    </div>
   </body>
 </html>
 `;

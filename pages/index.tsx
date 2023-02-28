@@ -41,28 +41,34 @@ function Page({ ...props }) {
     {
       children: "HTML",
       onClick: () => {
-        fetch("/index.html");
+        fetch("/iframe/index.html");
       },
     },
     {
       children: "JS",
       onClick: () => {
-        fetch("/index.js");
+        fetch("/iframe/index.js");
       },
     },
     {
       children: "CSS",
       onClick: () => {
-        fetch("/style.css");
+        fetch("/iframe/style.css");
       },
     },
   ];
 
   return (
-    <div className="flex h-screen items-center justify-center space-x-8">
-      {buttons.map((btn) => (
-        <button className="btn" {...btn} key={btn.children} />
-      ))}
+    <div className="flex h-screen flex-col items-center justify-center space-y-12">
+      <iframe
+        src="/iframe/index.html"
+        className="h-[60vh] w-[60vw] flex-none"
+      ></iframe>
+      <div className="flex w-full flex-none items-center justify-center space-x-8 py-4">
+        {buttons.map((btn) => (
+          <button className="btn" {...btn} key={btn.children} />
+        ))}
+      </div>
     </div>
   );
 }
