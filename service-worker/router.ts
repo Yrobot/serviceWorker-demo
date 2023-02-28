@@ -17,7 +17,7 @@ const router = new Router<Handler>();
 
 router.get("/hi", async () => new Response(`Hello World!`));
 
-router.get("/images/google", async () => new Response(await images.google()));
+router.get("/images/yrobot", async () => new Response(await images.yrobot()));
 
 router.get(
   "/iframe/index.html",

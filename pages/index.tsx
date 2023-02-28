@@ -35,7 +35,7 @@ function Page({ ...props }) {
     {
       children: "IMAGE",
       onClick: () => {
-        fetch("/images/google");
+        fetch("/images/yrobot");
       },
     },
     {

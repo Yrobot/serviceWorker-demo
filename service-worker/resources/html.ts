@@ -9,7 +9,7 @@ export const html = `
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <img src="/images/google" />
+    <img src="/images/yrobot" />
     <div class="title">
       Hi, This is <span class="red">Service Worker Demo</span>
     </div>
