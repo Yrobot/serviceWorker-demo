@@ -50,6 +50,12 @@ function Page({ ...props }) {
         fetch("/index.js");
       },
     },
+    {
+      children: "CSS",
+      onClick: () => {
+        fetch("/style.css");
+      },
+    },
   ];
 
   return (

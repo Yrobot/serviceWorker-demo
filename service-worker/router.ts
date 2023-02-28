@@ -2,6 +2,7 @@ import { Router, Params } from "tiny-request-router";
 import images from "./resources/images";
 import { html } from "./resources/html";
 import { js } from "./resources/js";
+import { css } from "./resources/css";
 
 export { Router, Method, Params } from "tiny-request-router";
 
@@ -24,6 +25,15 @@ router.get(
     new Response(html, {
       headers: {
         "content-type": "text/html",
+      },
+    })
+);
+router.get(
+  "/style.css",
+  async () =>
+    new Response(css, {
+      headers: {
+        "content-type": "text/css",
       },
     })
 );
