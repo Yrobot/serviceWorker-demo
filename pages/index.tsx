@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { waitUntil } from "utilities";
 
 function Page({ ...props }) {
   const [swReady, setReady] = useState(false);
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register(`/sw.js`);
+      const onSuccess = (i = 0) => {
+        fetch(`/hi`);
+        setReady(true);
+      };
 
-      // check if service worker is active
-      waitUntil(() => !!navigator.serviceWorker.controller, { max: 9000 }).then(
-        () => {
-          fetch(`/hi`);
-          setReady(true);
-        }
-      );
+      new Promise((resolve) => {
+        navigator.serviceWorker.register(`/sw.js`).then((registration) => {
+          if (registration.active) resolve(registration.active);
+          const sw =
+            registration.installing ||
+            registration.waiting ||
+            registration.active;
+          sw.onstatechange = () => {
+            if (sw.state === "activated") resolve(sw);
+          };
+        });
+      }).then(() => {
+        onSuccess();
+      });
+
+      // for the first register
     } else {
       alert("serviceWorker not support");
     }

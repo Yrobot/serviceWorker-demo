@@ -7,8 +7,11 @@ const mark = Math.floor(Date.now() / 1000) % 1000;
 console.log(`[service-worker:${mark}] running`);
 
 worker.addEventListener("install", (event) => {
-  console.log(`[service-worker:${mark}] installed`);
-  worker.skipWaiting();
+  event.waitUntil(
+    worker.skipWaiting().then(() => {
+      console.log(`[service-worker:${mark}] installed`);
+    })
+  );
 });
 
 worker.addEventListener("activate", (event) => {
